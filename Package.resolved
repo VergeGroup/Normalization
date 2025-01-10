@@ -1,0 +1,60 @@
+{
+  "originHash" : "d094386dc5fe8ac196e0ffdcda7c3cc991d4310d1f6d190edf459b6bacff8d2e",
+  "pins" : [
+    {
+      "identity" : "swift-collections",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-collections",
+      "state" : {
+        "revision" : "671108c96644956dddcd89dd59c203dcdb36cec7",
+        "version" : "1.1.4"
+      }
+    },
+    {
+      "identity" : "swift-macro-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-macro-testing.git",
+      "state" : {
+        "revision" : "20c1a8f3b624fb5d1503eadcaa84743050c350f4",
+        "version" : "0.5.2"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing",
+      "state" : {
+        "revision" : "42a086182681cf661f5c47c9b7dc3931de18c6d7",
+        "version" : "1.17.6"
+      }
+    },
+    {
+      "identity" : "swift-syntax",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-syntax.git",
+      "state" : {
+        "revision" : "0687f71944021d616d34d922343dcef086855920",
+        "version" : "600.0.1"
+      }
+    },
+    {
+      "identity" : "typedcomparator",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VergeGroup/TypedComparator",
+      "state" : {
+        "revision" : "337ce0e573e7637ddd29392cb88c3b852f042c8e",
+        "version" : "1.0.0"
+      }
+    },
+    {
+      "identity" : "typedidentifier",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VergeGroup/TypedIdentifier",
+      "state" : {
+        "revision" : "284340409ba47858a1b3c353dcef9c21303953db",
+        "version" : "2.0.3"
+      }
+    }
+  ],
+  "version" : 3
+}
