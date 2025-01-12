@@ -6,11 +6,9 @@ State management plays a crucial role in building efficient and maintainable app
 
 Normalization is the process of structuring data in a way that eliminates redundancy and ensures data consistency. It is essential in state-management libraries because it significantly reduces the computational complexity of operations and makes it easier to manage the state.
 
-Docs:
-  - [VergeNormalization](https://swiftpackageindex.com/VergeGroup/swift-Verge/main/documentation/vergenormalization)
-  - [VergeNormalizationDerived](https://swiftpackageindex.com/VergeGroup/swift-Verge/main/documentation/vergenormalizationderived)
-
 Let's take a look at an example to illustrate the difference between normalized and denormalized data structures.
+ 
+[Redux's normalization explanations](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape) are also useful to understatnd the concept of normalization.
 
 **Denormalized data structure:**
 
@@ -65,7 +63,7 @@ entities:
 
 In the normalized structure, author data is stored separately from posts, eliminating data redundancy and ensuring data consistency. The relationship between posts and authors is represented by the `authorId` field in the posts.
 
-VergeORM is designed to handle normalization in state-management libraries effectively. By leveraging VergeORM, you can simplify your state management, reduce the computational complexity of operations, and improve the overall performance and maintainability of your application.
+Normalization is designed to handle normalization in state-management libraries effectively. By leveraging Normalization, you can simplify your state management, reduce the computational complexity of operations, and improve the overall performance and maintainability of your application.
 
 **Defining Entities**
 
@@ -119,32 +117,32 @@ struct Database {
 Embed the `Database` in your application's state:
 
 ```swift
-struct RootState: StateType {
+struct RootState {
   var database: Database = .init()
 }
 ```
 
 **Storing and Querying Entities**
 
-Here's an example of how to store and query entities using a `store` property
+Writing
 
 ```swift
-// Storing entities
-store.commit {
-  $0.database.performBatchUpdates { context in
-    let authors = (0..<10).map { i in
-      Author(rawID: "\(i)")
-    }
-    let result = context.modifying.author.insert(authors)
-  }
-}
+var state: RootState
 
-// Querying entities
-let book = store.state.database.db.book.find(by: .init("1"))
-let author = store.state.database.db.author.find(by: .init("1"))
+state.database.performBatchUpdates { context in
+  let authors = (0..<10).map { i in
+    Author(rawID: "\(i)")
+  }
+  let result = context.modifying.author.insert(authors)
+}
 ```
 
-In this example, we use `store.commit` to perform batch updates on the database. We insert a new set of authors into the `author` entity table. Then, we use `store.state.database.db` to query the `book` and `author` entities by their identifiers.
+Reading
+
+```swift
+let book = state.database.db.book.find(by: .init("1"))
+let author = state.database.db.author.find(by: .init("1"))
+```
 
 By using VergeNormalization, you can efficiently manage your application state with a normalized data structure, which simplifies your state management, reduces the computational complexity of operations, and improves the overall performance and maintainability of your application.
 
