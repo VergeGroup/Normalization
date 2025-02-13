@@ -35,14 +35,14 @@ extension TableSelector {
 }
 
 public protocol StorageSelector: Hashable, Sendable {
-  associatedtype Source: Equatable
+  associatedtype Source
   associatedtype Storage: NormalizedStorageType
 
   func select(source: consuming Source) -> Storage
 }
 
 public struct KeyPathStorageSelector<
-  Source: Equatable,
+  Source,
   Storage: NormalizedStorageType
 >: StorageSelector, Equatable {
 
@@ -61,7 +61,7 @@ public struct KeyPathStorageSelector<
 extension StorageSelector {
 
   public static func keyPath<
-    Source: Equatable,
+    Source,
     Storage: NormalizedStorageType
   >
   (
