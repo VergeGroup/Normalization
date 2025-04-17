@@ -176,84 +176,16 @@ extension NormalizedStorageMacro: MemberAttributeMacro {
 
 /// Add member
 extension NormalizedStorageMacro: MemberMacro {
-
-  final class RenamingVisitor: SyntaxRewriter {
-
-    init() {}
-
-    override func visit(_ node: IdentifierPatternSyntax) -> PatternSyntax {
-      return "_$\(node.identifier)"
-    }
-
-    override func visit(_ node: VariableDeclSyntax) -> DeclSyntax {
-
-      // TODO: make variable private
-      return super.visit(node)
-    }
-  }
-
-  final class StoredPropertyCollector: SyntaxVisitor {
-
-    var storedProperties: [VariableDeclSyntax] = []
-
-    var onFoundMultipleBindings: () -> Void = {}
-
-    override func visit(_ node: VariableDeclSyntax) -> SyntaxVisitorContinueKind {
-
-      if node.bindingSpecifier == "let" {
-        storedProperties.append(node)
-        return super.visit(node)
-      }
-
-      if node.bindings.count > 1 {
-        // let a,b,c = 0
-        // it's stored
-        onFoundMultipleBindings()
-        return super.visit(node)
-      }
-
-      if node.bindings.first?.accessorBlock == nil {
-        storedProperties.append(node)
-        return super.visit(node)
-      }
-
-      // computed property
-
-      return .visitChildren
-    }
-
-  }
-
-  static func makeVariableFromConstant(_ node: VariableDeclSyntax) -> VariableDeclSyntax {
-    var modified = node
-    modified.bindingSpecifier = "var"
-    return modified
-  }
-
+ 
   public static func expansion(
     of node: SwiftSyntax.AttributeSyntax,
     providingMembersOf declaration: some SwiftSyntax.DeclGroupSyntax,
     in context: some SwiftSyntaxMacros.MacroExpansionContext
   ) throws -> [SwiftSyntax.DeclSyntax] {
 
-
-    let v = StoredPropertyCollector(viewMode: .fixedUp)
-    v.onFoundMultipleBindings = {
-      context.addDiagnostics(from: MacroError(message: "Cannot use multiple bindings"), node: node)
-    }
-    v.walk(declaration.memberBlock)
-
-    let storageMembers = v.storedProperties
-      .map(makeVariableFromConstant)
-      .map {
-
-      let rename = RenamingVisitor()
-      let renamed = rename.visit($0)
-
-      return renamed
-    }
-
-    return storageMembers
+    return [
+      "public var version: UInt64 = 0"
+    ]
 
   }
 

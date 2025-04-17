@@ -1,5 +1,5 @@
 
-//@attached(member, names: arbitrary)
+@attached(member, names: named(version))
 //@attached(memberAttribute)
 @attached(extension, conformances: NormalizedStorageType, Equatable, Sendable, names: named(Context), arbitrary)
 public macro NormalizedStorage() = #externalMacro(module: "NormalizationMacrosPlugin", type: "NormalizedStorageMacro")

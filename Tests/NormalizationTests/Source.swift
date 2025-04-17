@@ -24,7 +24,8 @@ final class Tests: XCTestCase {
   func testCommit() {
 
     var state = MyStorage()
-
+    let currentVersion = state.version
+    
     var transaction = state.beginBatchUpdates()
 
     let book = Book(rawID: "some", authorID: Author.anonymous.typedID)
@@ -36,6 +37,7 @@ final class Tests: XCTestCase {
     let b = state.book
 
     XCTAssertEqual(a, b)
+    XCTAssertNotEqual(currentVersion, state.version)
 
   }
 

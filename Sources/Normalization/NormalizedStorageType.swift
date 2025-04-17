@@ -5,6 +5,8 @@ public protocol NormalizedStorageType: Equatable, Sendable {
    Performs any additional operations for updating.
    */
   func finalizeTransaction(transaction: inout ModifyingTransaction<Self>)
+  
+  var version: UInt64 { get set } 
 
   static func compare(lhs: Self, rhs: Self) -> Bool
 }
@@ -39,6 +41,8 @@ extension NormalizedStorageType {
     do {
       self = transaction.modifying
     }
+    
+    self.version += 1
 
   }
 

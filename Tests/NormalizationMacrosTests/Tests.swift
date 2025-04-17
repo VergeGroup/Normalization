@@ -54,6 +54,7 @@ final class DatabaseMacroTests: XCTestCase {
       }
       
       extension MyDatabase: NormalizedStorageType {
+        public var version: UInt64 { 0 }
       }
       
       extension MyDatabase: Sendable {
@@ -98,6 +99,7 @@ final class DatabaseMacroTests: XCTestCase {
       }
       
       extension MyDatabase: NormalizedStorageType {
+        public var version: UInt64 { 0 }
       }
       
       extension MyDatabase: Sendable {
