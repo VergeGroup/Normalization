@@ -1,5 +1,5 @@
 {
-  "originHash" : "d094386dc5fe8ac196e0ffdcda7c3cc991d4310d1f6d190edf459b6bacff8d2e",
+  "originHash" : "35c6fb584459da4fe3f1d7ef67352a2cab82d35ffcae369c27dea786a3352426",
   "pins" : [
     {
       "identity" : "swift-collections",
@@ -38,21 +38,21 @@
       }
     },
     {
+      "identity" : "swift-typed-identifier",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/VergeGroup/swift-typed-identifier",
+      "state" : {
+        "revision" : "ea7afa2ce943c6bf3ef87d385c8a6e9f67fea4f3",
+        "version" : "2.0.4"
+      }
+    },
+    {
       "identity" : "typedcomparator",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/VergeGroup/TypedComparator",
       "state" : {
         "revision" : "337ce0e573e7637ddd29392cb88c3b852f042c8e",
         "version" : "1.0.0"
-      }
-    },
-    {
-      "identity" : "typedidentifier",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/VergeGroup/TypedIdentifier",
-      "state" : {
-        "revision" : "284340409ba47858a1b3c353dcef9c21303953db",
-        "version" : "2.0.3"
       }
     }
   ],
