@@ -22,7 +22,7 @@ let package = Package(
     .package(url: "https://github.com/apple/swift-collections", from: "1.1.0"),
     .package(url: "https://github.com/VergeGroup/TypedComparator", from: "1.0.0"),
     .package(url: "https://github.com/VergeGroup/swift-typed-identifier", from: "2.0.4"),
-    .package(url: "https://github.com/apple/swift-syntax.git", from: "600.0.0"),
+    .package(url: "https://github.com/apple/swift-syntax.git", from: "602.0.0"),
     .package(url: "https://github.com/pointfreeco/swift-macro-testing.git", from: "0.2.1"),
   ],
   targets: [
