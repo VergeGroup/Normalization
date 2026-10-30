@@ -37,9 +37,7 @@ final class DatabaseMacroTests: XCTestCase {
         @TableAccessor(hoge)
         let user: String
       
-        @TableAccessor var _$user: String
-      
-        @TableAccessor(hoge) var _$user: String
+        public var version: UInt64 = 0
       }
       
       extension MyDatabase {
@@ -54,7 +52,6 @@ final class DatabaseMacroTests: XCTestCase {
       }
       
       extension MyDatabase: NormalizedStorageType {
-        public var version: UInt64 { 0 }
       }
       
       extension MyDatabase: Sendable {
@@ -84,7 +81,7 @@ final class DatabaseMacroTests: XCTestCase {
       struct MyDatabase {
         let user: String
       
-        var _$user: String
+        public var version: UInt64 = 0
       }
       
       extension MyDatabase {
@@ -99,7 +96,6 @@ final class DatabaseMacroTests: XCTestCase {
       }
       
       extension MyDatabase: NormalizedStorageType {
-        public var version: UInt64 { 0 }
       }
       
       extension MyDatabase: Sendable {
